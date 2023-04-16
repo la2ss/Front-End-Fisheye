@@ -1,0 +1,77 @@
+.lightbox-modal {
+    z-index:1000;
+    position: fixed;
+    top: 0;
+   
+    width:2000px;
+    height:100%;
+    margin:auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lightbox-content {
+    z-index:1000;
+    
+    width:1200px;
+    height:100%;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.prev-btn {
+    border: none;
+    background: url(../assets/icons/prev.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    top: 15%;
+    cursor: pointer;
+    left: 0;
+
+  }
+
+ 
+  .next-btn {
+    border: none;
+    background: url(../assets/icons/next.png);
+    background-repeat: no-repeat;
+    top: 15%;
+    height: 50px;
+    width: 50px;
+    flex-basis: auto; 
+    cursor: pointer;
+    
+  }
+  .close-btn {
+    position:fixed;
+    top:5%;
+    right:25%;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border: none;
+    background: url(../assets/icons/close.png);
+    background-repeat: no-repeat;
+  
+  }
+
+  .media-title {
+    color:#901c1c;
+  }
+
+  .media-content {
+    width: 640px;
+    height:640px;
+  }
+
+  .media-content .media {
+    object-fit: cover;
+    width:100%;
+    height:640px;
+  }

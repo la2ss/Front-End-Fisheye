@@ -1,37 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <script src="https://kit.fontawesome.com/0821410872.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
+
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" title="Fisheye Homepage">
+        <img src="assets/images/logo.png" alt="Fisheye Homepage" class="logo" >
+      </a>
     </header>
+
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="modal_btn open_btn" aria-hidden="true" aria-label="Contact Me">Contactez-moi</button>
       </div>
+
+      <div class="media-section"></div>
+      
     </main>
-    <div id="contact_modal">
-			<div class="modal">
+
+    <div id="contact_modal"  >
+			<div class="modal" role="dialog" aria-hidden="true">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" class="close_btn" alt="Close Contact Form" aria-label="Close Contact Form">
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+        <form
+          name="contact"
+          id="form"
+          novalidate
+          >
+          <div
+            class="formData">
+            <label for="first">Prénom</label><br>
+            <input
+              type="text"
+              id="first"
+              name="first"
+              minlength="2"
+              required
+              aria-labelledby="first"
+            >  <span id="error_first"></span><br>
+          </div>
+          <div
+            class="formData">
+            <label for="last">Nom</label><br>
+            <input
+              type="text"
+              id="last"
+              name="last"
+              minlength="2"
+              required
+              aria-labelledby="last"
+            ><span id="error_last"></span><br>
+          </div>
+       <div class="formData">
+            <label for="email">E-mail</label><br>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required 
+              aria-labelledby="email"
+            ><span id="error_email"></span><br>
+          </div>
+          <div
+            class="formData">
+            <label for="message">Votre message</label><br>
+            <input
+              type="text"
+              id="message"
+              name="message"
+              required
+              aria-labelledby="message"
+            ><span id="error_message"></span><br>
+          </div>
+          <button class="modal_btn valid_btn" aria-hidden="true" aria-label="Send">Envoyer</button>
+        </form>
+       
+      </div>
+    </div>
+	
+    <script src="scripts/factories/mediaFactory.js"></script>
+    <script src="scripts/factories/photographerFactory.js"></script>
+    <script src="scripts/utils/sortMedia.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
+     <script src="scripts/utils/lightbox.js"></script> 
   </body>
 </html>
