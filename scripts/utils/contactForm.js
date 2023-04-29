@@ -2,8 +2,8 @@ const contactModal = document.getElementById("contact_modal");
 const modalBtn = document.querySelector(".open_btn");
 const validBtn = document.querySelector(".valid_btn");
 const closeBtn = document.querySelector(".close_btn");
-
-const focuss = document.querySelector(".modal");
+let inputs = document.querySelectorAll('input');
+const focuss = document.querySelector("#first");
 
 const first = document.getElementById("first");
 const firstError = document.getElementById("error_first");
@@ -85,8 +85,9 @@ function onSubmit(event) {
   event.preventDefault();
 
   if (isValid) {
+    saveForm();
     validBtn.addEventListener("click", closeModal);
-    window.location.reload();
+    //window.location.reload();
   }
 
 }
@@ -94,11 +95,38 @@ function onSubmit(event) {
 
 function displayModal() {
   contactModal.style.display = "block";
-  focuss.focus()
+  inputs.forEach(input => input.value = '');
+  focuss.focus();
 }
 
 function closeModal() {
   contactModal.style.display = "none";
 
 }
+
+
+
+/** sauvegarde et recuperation des donnees du formulaire */
+function saveForm(){
+  localStorage.setItem("prenom",first.value);
+  localStorage.setItem("nom",last.value);
+  localStorage.setItem("email",email.value);
+  localStorage.setItem("message",message.value);
+
+  const firstVal = document.getElementById('first').value = localStorage.getItem('prenom');
+  const lastVal = document.getElementById('last').value = localStorage.getItem('nom');
+  const emailVal = document.getElementById('email').value = localStorage.getItem('email');
+  const messageVal = document.getElementById('message').value = localStorage.getItem('message');
+
+  const formulaire = ("Le resultat du formulaire est le prenom: " + ""+firstVal +" le nom: "+ lastVal +" l'adresse emai "+emailVal +" et le message "+ messageVal);
+  console.log(formulaire);
+
+}
+
+
+
+
+
+
+ 
 
