@@ -4,22 +4,22 @@ class LightBox {
     this.galleryIndex = 0;
     this.modal = null;
     this.isOpen = false;
-    
+
     this.photographerData = photographerData;
     this.name = photographerData.name;
     const photographerName = this.name.split(" ");
     const firstName = photographerName[0];
     this.mediasData = mediasData;
-   
+
     this.mediaPath = `assets/photographers/${firstName}/`;
 
     this.generateModal()
     this.hide()
-  
-}
+
+  }
 
   generateModal() {
-    
+
     const isImage = this.mediasData[0]
     const mediaHTML = isImage
       ? `<img class="media" src="${this.mediaPath}">`
@@ -53,7 +53,7 @@ class LightBox {
     const closeBtn = this.modal.querySelector(".close-btn");
     closeBtn.addEventListener("click", () => {
       this.hide();
-      
+
     });
 
     const prevBtn = this.modal.querySelector(".prev-btn");
@@ -74,26 +74,26 @@ class LightBox {
       } else if (event.key === "ArrowRight") {
         this.nextMedia();
       }
-      
+
 
     });
   }
 
   show() {
-    
+
     this.modal.style.display = "block";
     this.modal.setAttribute('aria-hidden', 'false');
-    
-      this.isOpen = true;
-    
+
+    this.isOpen = true;
+
   }
 
   hide() {
-    
+
     this.modal.style.display = "none";
     this.modal.setAttribute('aria-hidden', 'true');
-    
-      this.isOpen = false;
+
+    this.isOpen = false;
   }
 
   updateMedia(mediaIndex) {
@@ -112,7 +112,7 @@ class LightBox {
     indexDisplay.textContent = `${this.galleryIndex + 1}/${this.mediasData.length}`;
 
   }
-  
+
 
   prevMedia() {
     if (this.galleryIndex > 0) {
@@ -139,13 +139,13 @@ class LightBox {
         const selectedMediaName = media.name
         const mediaIndex = this.mediasData.findIndex(media =>
           media.title === selectedMediaName
-          )
+        )
         this.updateMedia(mediaIndex);
         this.show();
       });
     });
-    
+
   }
-  
-  
+
+
 }
